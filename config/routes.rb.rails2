@@ -1,0 +1,26 @@
+ActionController::Routing::Routes.draw do |map|
+
+  map.resources :holidays
+  map.resources :users, :collection => { :edit_multiple => :post, :print_multiple => :get, :update_multiple => :put }  
+
+  map.namespace :admin do |admin|
+    admin.resources :users
+  end
+  map.resources :products, :has_many => :transactions, :shallow => true
+  map.resources :transactions, :only => [:index]
+  map.resources :users, :has_many => [ :equip_agreements, :print_agreements, :laser_agreements ]
+  map.resources :users, :has_many => :workstations, :shallow => true
+  map.resources :users, :has_many => :submissions, :shallow => true
+  map.resources :workstations, :only => [:index]
+  map.resources :submissions, :only => [:index]
+
+  map.logout '/logout', :controller => 'application', :action => 'logout'
+
+  map.connect ':controller/:action/:id'
+  map.connect ':controller/:action/:id.:format'
+  map.connect 'registration', :controller => 'registration', :action => 'index'
+  map.connect 'register', :controller => 'registration', :action => 'index'
+  map.connect 'directory', :controller => 'directory', :action => 'index'
+  map.root :controller => "directory", :action => "index"  
+ 
+end

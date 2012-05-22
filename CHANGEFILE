@@ -1,0 +1,110 @@
+July 2011
+
+NEED FIXING:
+
+X - COMMIT TO GITHUB
+
+X - Fix logout
+
+X - find agreements for current semester in Admin/Users
+
+X - confirmation message when checking in product
+
+X - Fix Administration, Workstations section - pagination, records per page, search
+ 
+X - Fix undergrad student link on directory main page
+
+X - Live records-per-page updating - talk to Patrick
+
+X - Observe & validate borrower field when checking out equipment - talk to Patrick
+
+X - Fix formatting of product index and show pages
+
+X - Fix date formatting
+
+X - Links to original PDF files in submissions
+
+X - Number of records per page in submissions
+
+X - Order submissions with newest first
+
+X - Configure mailman
+
+X - error messages for edit_multiple in Users
+
+X - update README with Redis, resque, god instructions
+
+X - pagination not working for submissions?
+
+X - add "_original" to submission filenames?
+
+X - sort order for transactions
+
+Modified:
+
+equip_mailer.rb
+reg_mailer.rb
+
+
+April 2011
+
+
+5-2-2011 - PENDING
+
+Hide Submissions from menu for student users, show Products
+FIX SUBMISSIONS COLLECTING - use Paperclip?
+HAVE RECORDS-PER-PAGE USE AJAX FOR LIVE UPDATING
+
+
+Adding Marilyn/Robie requested fields
+
+Added sid_number to Users
+Made year_in_program not visible for undergrads
+Changed program search to dropdown
+Gave all users print_multiple option - now need to go to print_multiple before you can edit_multiple
+
+Configured Holiday views and interface
+Made Products visible by students: students can view products that are out, but not who checked them out - MENUS NEED UPDATING
+
+
+Modified:
+
+holidays views
+application.css
+/admin/users/index.html.erb
+multiple User view files
+
+---
+
+
+4-28-2011 - CHANGES NOT UPLOADED
+
+Added Holidays controller for setting office-closed holidays for Equipment Checkout app (so days office are closed can be skipped when calculating next business day), and for setting academic session start and end days.
+
+Modified:
+
+application_controller.rb
+live_validations_controller.rb
+transactions_controller.rb
+holidays_controller.rb
+user.rb
+transaction.rb
+holiday.rb
+views/layouts/holidays.html.erb
+views/holidays
+
+rake db:migrate required
+
+
+---
+
+
+4-21-2011 - CHANGES UPLOADED
+
+Modified equipment checkout app so that user's photo showed up when checking out equipment and in list of equipment
+Modified equipment checkout views so that they no longer use tables (and look crappy).  Yay!
+
+
+
+
+application_helper.rb

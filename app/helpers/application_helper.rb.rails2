@@ -1,0 +1,19 @@
+# Methods added to this helper will be available to all templates in the application.
+module ApplicationHelper
+  def ordinalized_time(time = Time.now)
+    time.strftime("%b #{time.day.ordinalize} %I:%M %p")
+  end
+  
+  def title(page_title)  
+    content_for(:title) { page_title }  
+  end
+  
+  def userimage(user)
+    if File.exist?("public#{user.image_url}")
+			image_tag user.image_url, :class => 'user-image'
+		else
+			image_tag "/images/students/placeholder.jpg", :class => 'user-image'
+		end
+	end
+	
+end
